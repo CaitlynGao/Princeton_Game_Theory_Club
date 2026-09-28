@@ -29,8 +29,8 @@ export default function TeamPage() {
       year: "Psychology '30",
     },
     {
-      initials: "SE",
-      name: "Seraphina",
+      initials: "SK",
+      name: "Seraphina Kang",
       role: "Publicity Manager",
       year: "SPIA '30",
     },
