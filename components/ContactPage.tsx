@@ -1,7 +1,11 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { ScrollAnimation, StaggerContainer, StaggerItem } from './ScrollAnimation'
+import { motion } from "framer-motion";
+import {
+  ScrollAnimation,
+  StaggerContainer,
+  StaggerItem,
+} from "./ScrollAnimation";
 
 export default function ContactPage() {
   return (
@@ -12,10 +16,11 @@ export default function ContactPage() {
             Get In Touch
           </h2>
         </ScrollAnimation>
-        
+
         <ScrollAnimation direction="up" delay={0.1}>
           <p className="text-lg text-gray-600 mb-8">
-            Interested in joining or learning more? We&apos;d love to hear from you!
+            Interested in joining or learning more? We&apos;d love to hear from
+            you!
           </p>
         </ScrollAnimation>
 
@@ -25,7 +30,9 @@ export default function ContactPage() {
               whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
               className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">📧 Email</h3>
+              <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">
+                📧 Email
+              </h3>
               <p className="text-gray-600">gametheory@princeton.edu</p>
             </motion.div>
           </StaggerItem>
@@ -35,11 +42,10 @@ export default function ContactPage() {
               whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
               className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">📍 Location</h3>
-              <p className="text-gray-600">
-                Weekly meetings at Friend Center 101<br />
-                Fridays, 7:00 PM
-              </p>
+              <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">
+                📍 Location
+              </h3>
+              <p className="text-gray-600">TBD</p>
             </motion.div>
           </StaggerItem>
 
@@ -48,10 +54,16 @@ export default function ContactPage() {
               whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
               className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">💬 Join Us</h3>
+              <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">
+                💬 Join Us
+              </h3>
               <p className="text-gray-600">
-                Sign up for our mailing list:<br />
-                <a href="mailto:gametheory@princeton.edu?subject=Mailing%20List" className="text-princeton-orange hover:underline">
+                Sign up for our mailing list:
+                <br />
+                <a
+                  href="mailto:gametheory@princeton.edu?subject=Mailing%20List"
+                  className="text-princeton-orange hover:underline"
+                >
                   Subscribe here
                 </a>
               </p>
@@ -65,7 +77,10 @@ export default function ContactPage() {
             className="mt-12 bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
           >
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            <p className="text-gray-600 mb-4">Stay updated with our latest events and activities on social media.</p>
+            <p className="text-gray-600 mb-4">
+              Stay updated with our latest events and activities on social
+              media.
+            </p>
             <div className="flex gap-6">
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -93,6 +108,5 @@ export default function ContactPage() {
         </ScrollAnimation>
       </div>
     </div>
-  )
+  );
 }
-

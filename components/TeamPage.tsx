@@ -1,17 +1,58 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { ScrollAnimation, StaggerContainer, StaggerItem } from './ScrollAnimation'
+import { motion } from "framer-motion";
+import {
+  ScrollAnimation,
+  StaggerContainer,
+  StaggerItem,
+} from "./ScrollAnimation";
 
 export default function TeamPage() {
   const teamMembers = [
-    { initials: 'YH', name: 'Yehyun Hong', role: 'President', year: 'ORFE \'28' },
-    { initials: 'JF', name: 'Julian Fente', role: 'Vice President', year: 'MAE \'28' },
-    { initials: 'NF', name: 'Nicolas Feng', role: 'Development Lead', year: 'ECE \'28' },
-    { initials: 'WV', name: 'William Varnum', role: 'Treasurer', year: 'Physics \'28' },
-    { initials: 'SC', name: 'Sophia Chen', role: 'Publicity Chair', year: 'COS \'28' },
-    { initials: 'JA', name: 'Jonathan Adhout', role: 'Secretary', year: 'ORFE \'29' },
-  ]
+    { initials: "JD", name: "Jay Dewan", role: "President", year: "ORFE '30" },
+    {
+      initials: "CZ",
+      name: "Crystal Zheng",
+      role: "Treasurer",
+      year: "CBE '30",
+    },
+    {
+      initials: "YW",
+      name: "Yi Wang Heng",
+      role: "Social Chair",
+      year: "Physics '30",
+    },
+    {
+      initials: "AJ",
+      name: "Amy Jiang",
+      role: "Social Chair",
+      year: "Psychology '30",
+    },
+    {
+      initials: "SE",
+      name: "Seraphina",
+      role: "Publicity Manager",
+      year: "SPIA '30",
+    },
+    {
+      initials: "SD",
+      name: "Sissi Dai",
+      role: "Dev Team & Graphic Design",
+      year: "Math/COS '30",
+    },
+    {
+      initials: "CG",
+      name: "Caitlyn Gao",
+      role: "Dev Team & Website",
+      year: "COS '30",
+    },
+    {
+      initials: "CW",
+      name: "Charles Wang",
+      role: "Strategy Team",
+      year: "Math '29",
+    },
+  ];
 
   return (
     <div className="max-w-7xl mx-auto px-8 py-16">
@@ -21,28 +62,40 @@ export default function TeamPage() {
             Our Team
           </h2>
         </ScrollAnimation>
-        
+
         <ScrollAnimation direction="up" delay={0.1}>
           <p className="text-lg text-gray-600 mb-8">
             Meet the dedicated students leading Princeton Game Theory Club.
           </p>
         </ScrollAnimation>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" staggerDelay={0.1}>
+        <StaggerContainer
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+          staggerDelay={0.1}
+        >
           {teamMembers.map((member, index) => (
             <StaggerItem key={index}>
               <motion.div
-                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.02,
+                  transition: { duration: 0.2 },
+                }}
                 className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow"
               >
                 <motion.div
-                  whileHover={{ rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 } }}
+                  whileHover={{
+                    rotate: [0, -10, 10, -10, 0],
+                    transition: { duration: 0.5 },
+                  }}
                   className="w-32 h-32 rounded-full bg-gradient-to-br from-princeton-orange to-orange-700 mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold"
                 >
                   {member.initials}
                 </motion.div>
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <div className="text-princeton-orange text-sm mb-2">{member.role}</div>
+                <div className="text-princeton-orange text-sm mb-2">
+                  {member.role}
+                </div>
                 <p className="text-gray-600">{member.year}</p>
               </motion.div>
             </StaggerItem>
@@ -50,6 +103,5 @@ export default function TeamPage() {
         </StaggerContainer>
       </div>
     </div>
-  )
+  );
 }
-
