@@ -1,11 +1,11 @@
 export const fallbackEvents = [
   {
     id: 0,
-    date: "October 2, 2026 • 7:00 PM • TBD",
+    date: "October 2, 2026 • 8:00 PM • Lewis Library 138",
     title: "Fish Night Kickoff",
     description:
       "Come celebrate the launch of PGTC in Fall 2026 with card game, food, and new friends. Bring a friend and join us for a fun evening!",
-    location: "TBD",
+    location: "Lewis Library 138",
   },
   {
     id: 1,

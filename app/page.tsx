@@ -5,16 +5,18 @@ import HomePage from '@/components/HomePage'
 import AboutPage from '@/components/AboutPage'
 import EventsPage from '@/components/EventsPage'
 import ResourcesPage from '@/components/ResourcesPage'
-import TeamPage from '@/components/TeamPage'
+import OurWorkPage from '@/components/OurWorkPage'
 import ContactPage from '@/components/ContactPage'
 import Navbar from '@/components/Navbar'
+
+const VALID_PAGES = ['home', 'about', 'events', 'our-work', 'resources', 'contact']
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('home')
 
   useEffect(() => {
     const hash = window.location.hash.slice(1)
-    if (hash && ['home', 'about', 'events', 'resources', 'team', 'contact'].includes(hash)) {
+    if (hash && VALID_PAGES.includes(hash)) {
       setCurrentPage(hash)
     }
   }, [])
@@ -33,10 +35,10 @@ export default function Home() {
         return <AboutPage />
       case 'events':
         return <EventsPage />
+      case 'our-work':
+        return <OurWorkPage />
       case 'resources':
         return <ResourcesPage />
-      case 'team':
-        return <TeamPage />
       case 'contact':
         return <ContactPage />
       default:
@@ -53,4 +55,3 @@ export default function Home() {
     </>
   )
 }
-

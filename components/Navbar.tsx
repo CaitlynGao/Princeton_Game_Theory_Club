@@ -1,34 +1,42 @@
-'use client'
+"use client";
 
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { useState } from 'react'
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState } from "react";
 
 interface NavbarProps {
-  currentPage?: string
-  onPageChange?: (page: string) => void
+  currentPage?: string;
+  onPageChange?: (page: string) => void;
 }
 
-export default function Navbar({ currentPage = 'home', onPageChange }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
+export default function Navbar({
+  currentPage = "home",
+  onPageChange,
+}: NavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setIsScrolled(latest > 50)
-  })
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
 
-  const handleClick = (page: string, e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
+  const handleClick = (
+    page: string,
+    e: React.MouseEvent<HTMLAnchorElement>,
+  ) => {
+    e.preventDefault();
     if (onPageChange) {
-      onPageChange(page)
+      onPageChange(page);
     }
-  }
+  };
 
   return (
     <motion.nav
       initial={{ y: 0 }}
       animate={{
-        backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 1)',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)',
+        backgroundColor: isScrolled
+          ? "rgba(0, 0, 0, 0.95)"
+          : "rgba(0, 0, 0, 1)",
+        backdropFilter: isScrolled ? "blur(10px)" : "blur(0px)",
       }}
       transition={{ duration: 0.2 }}
       className="py-4 sticky top-0 z-50 shadow-lg"
@@ -38,32 +46,38 @@ export default function Navbar({ currentPage = 'home', onPageChange }: NavbarPro
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href="#"
-          onClick={(e) => handleClick('home', e)}
+          onClick={(e) => handleClick("home", e)}
           className="text-white text-2xl font-bold cursor-pointer"
         >
           Princeton <span className="text-princeton-orange">Game Theory</span>
         </motion.a>
         <ul className="flex gap-8 list-none">
-          {['home', 'about', 'events', 'resources', 'team', 'contact'].map((page) => (
-            <li key={page}>
+          {[
+            { id: "home", label: "Home" },
+            { id: "about", label: "About" },
+            { id: "events", label: "Events" },
+            { id: "our-work", label: "Our Work" },
+            { id: "resources", label: "Resources" },
+            { id: "contact", label: "Contact" },
+          ].map(({ id, label }) => (
+            <li key={id}>
               <motion.a
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
                 href="#"
-                onClick={(e) => handleClick(page, e)}
-                className={`transition-colors capitalize ${
-                  currentPage === page
-                    ? 'text-princeton-orange'
-                    : 'text-white hover:text-princeton-orange'
+                onClick={(e) => handleClick(id, e)}
+                className={`transition-colors ${
+                  currentPage === id
+                    ? "text-princeton-orange"
+                    : "text-white hover:text-princeton-orange"
                 }`}
               >
-                {page}
+                {label}
               </motion.a>
             </li>
           ))}
         </ul>
       </div>
     </motion.nav>
-  )
+  );
 }
-
