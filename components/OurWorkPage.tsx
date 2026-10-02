@@ -1,26 +1,30 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { ScrollAnimation, StaggerContainer, StaggerItem } from './ScrollAnimation'
+import { motion } from "framer-motion";
+import {
+  ScrollAnimation,
+  StaggerContainer,
+  StaggerItem,
+} from "./ScrollAnimation";
 
 const projects = [
   {
-    title: 'Fish Simulation',
-    icon: '🐟',
+    title: "Fish Simulation",
+    icon: "🐟",
     description:
-      'An interactive multi-agent simulation exploring evolutionary game theory through fish behavior. Watch strategies emerge, compete, and evolve in real time.',
-    status: 'In Development',
-    tags: ['Simulation', 'Evolutionary Game Theory', 'Multi-Agent'],
+      "A simulation exploring game-theoretic concepts through the lens of the card game Fish. More details coming soon.",
+    status: "In Development",
+    tags: ["Simulation", "Game Theory"],
   },
   {
-    title: 'Game Theory Textbook',
-    icon: '📖',
+    title: "Solving Fish",
+    icon: "📖",
     description:
-      'A collaborative, student-written introduction to game theory — covering Nash equilibria, mechanism design, and applications across economics, CS, and biology.',
-    status: 'In Progress',
-    tags: ['Educational', 'Open Access', 'Research'],
+      "A book that applies game theory to fully analyze and solve the card game Fish — uncovering optimal strategies, equilibria, and the mathematics behind the game.",
+    status: "In Progress",
+    tags: ["Game Theory", "Research", "Fish"],
   },
-]
+];
 
 export default function OurWorkPage() {
   return (
@@ -38,7 +42,10 @@ export default function OurWorkPage() {
           </p>
         </ScrollAnimation>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8" staggerDelay={0.15}>
+        <StaggerContainer
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          staggerDelay={0.15}
+        >
           {projects.map((project, index) => (
             <StaggerItem key={index}>
               <motion.div
@@ -52,7 +59,9 @@ export default function OurWorkPage() {
                     {project.status}
                   </span>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-5">{project.description}</p>
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
@@ -69,5 +78,5 @@ export default function OurWorkPage() {
         </StaggerContainer>
       </div>
     </div>
-  )
+  );
 }
